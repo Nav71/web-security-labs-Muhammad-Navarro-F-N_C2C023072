@@ -1,0 +1,14 @@
+<!doctype html>
+<title>Upload (Secure)</title>
+<h2>Upload file (restricted)</h2>
+<p>{{ message }}</p>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file"><br>
+  <button type="submit">Upload</button>
+</form>
+<h3>Stored Files (safe folder)</h3>
+<ul>
+{% for f in files %}
+  <li>{{ f }}</li>
+{% endfor %}
+</ul>

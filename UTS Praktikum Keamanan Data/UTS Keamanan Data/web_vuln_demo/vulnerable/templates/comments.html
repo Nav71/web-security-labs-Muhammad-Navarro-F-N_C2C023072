@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Comments (Vulnerable)</title>
+<h2>Comments (stored, rendered UNSAFE)</h2>
+<form method="post">
+  Name: <input name="name"><br>
+  Comment:<br>
+  <textarea name="comment" rows="4" cols="40"></textarea><br>
+  <button type="submit">Post</button>
+</form>
+<h3>Previous comments</h3>
+<ul>
+{% for c in comments %}
+  <li><strong>{{ c.name }}</strong>: <!-- VULNERABLE: render comment without escaping --> {{ c.comment|safe }}</li>
+{% endfor %}
+</ul>

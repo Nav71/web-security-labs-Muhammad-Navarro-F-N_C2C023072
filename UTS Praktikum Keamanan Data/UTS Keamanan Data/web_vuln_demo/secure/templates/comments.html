@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Comments (Secure)</title>
+<h2>Comments (sanitized)</h2>
+<form method="post">
+  Name: <input name="name"><br>
+  Comment:<br>
+  <textarea name="comment" rows="4" cols="40"></textarea><br>
+  <button type="submit">Post</button>
+</form>
+<h3>Previous comments</h3>
+<ul>
+{% for c in comments %}
+  <li><strong>{{ c.name }}</strong>: {{ c.comment }}</li>
+{% endfor %}
+</ul>
